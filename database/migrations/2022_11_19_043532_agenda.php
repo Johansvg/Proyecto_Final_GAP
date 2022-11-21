@@ -18,9 +18,9 @@ class Agenda extends Migration
             $table->id();
             $table->date('fecha_agenda');
             $table->time('hora_agenda');
-            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_usuario');
             $table->unsignedBigInteger('id_servicio');
-            $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->foreign('id_servicio')->references('id')->on('servicios');
             $table->timestamps();
         });

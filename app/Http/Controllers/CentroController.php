@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\productoModelo;
+use App\Models\CentroModel;
 
-class ProductoController extends Controller
+class CentroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $producto = productoModelo::all();
-        return $producto;
+        $centros = CentroModel::all();
+        return $centros;
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        // return view('productos.create');
+        // return view('centros.create');
     }
 
     /**
@@ -39,14 +39,13 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
-        $producto = new productoModelo();
-        $producto->nombre_producto = $request->nombre;
-        $producto->descripcion_producto = $request->desc;
-        $producto->precio_producto = $request->precio;
-        $producto->save();
+        $centro = new CentroModel();
+        $centro->nombre_centro = $request->nombre;
+        $centro->direccion_centro = $request->direccion;
+        $centro->save();
 
-        $producto = productoModelo::all();
-        return $producto;
+        $centros = CentroModel::all();
+        return $centros;
     }
 
     /**
@@ -58,8 +57,8 @@ class ProductoController extends Controller
     public function show($id)
     {
         //
-        $producto = productoModelo::find($id);
-        return $producto;
+        $centro = CentroModel::find($id);
+        return $centro;
     }
 
     /**
@@ -71,7 +70,7 @@ class ProductoController extends Controller
     public function edit($id)
     {
         //
-        // return view('productos.edit');
+        return view('centros.edit');
     }
 
     /**
@@ -84,14 +83,13 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $producto = productoModelo::find($id);
-        $producto->nombre_producto = $request->nombre;
-        $producto->descripcion_producto = $request->desc;
-        $producto->precio_producto = $request->precio;
-        $producto->save();
+        $centro = CentroModel::find($id);
+        $centro->nombre_centro = $request->nombre;
+        $centro->direccion_centro = $request->direccion;
+        $centro->save();
 
-        $producto = productoModelo::all();
-        return $producto;
+        $centros = CentroModel::all();
+        return $centros;
     }
 
     /**
@@ -103,10 +101,10 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         //
-        $producto = productoModelo::find($id);
-        $producto->delete();
-
-        $producto = productoModelo::all();
-        return $producto;
+        $centro = CentroModel::find($id);
+        $centro->delete();
+        
+        $centro = CentroModel::all();
+        return $centro;
     }
 }

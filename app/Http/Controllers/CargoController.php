@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\productoModelo;
+use App\Models\CargoModel;
 
-class ProductoController extends Controller
+class CargoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $producto = productoModelo::all();
-        return $producto;
+        $cargos = CargoModel::all();
+        return $cargos;
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        // return view('productos.create');
+        // return view('cargos.create');
     }
 
     /**
@@ -39,14 +39,13 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
-        $producto = new productoModelo();
-        $producto->nombre_producto = $request->nombre;
-        $producto->descripcion_producto = $request->desc;
-        $producto->precio_producto = $request->precio;
-        $producto->save();
+        $cargo = new CargoModel();
+        $cargo->nombre_cargo = $request->nombre;
+        $cargo->descripcion_cargo = $request->descripcion;
+        $cargo->save();
 
-        $producto = productoModelo::all();
-        return $producto;
+        $cargos = CargoModel::all();
+        return $cargos;
     }
 
     /**
@@ -58,8 +57,8 @@ class ProductoController extends Controller
     public function show($id)
     {
         //
-        $producto = productoModelo::find($id);
-        return $producto;
+        $cargo = CargoModel::find($id);
+        return $cargo;
     }
 
     /**
@@ -71,7 +70,7 @@ class ProductoController extends Controller
     public function edit($id)
     {
         //
-        // return view('productos.edit');
+        // $cargo = CargoModel::find($id);
     }
 
     /**
@@ -84,14 +83,13 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $producto = productoModelo::find($id);
-        $producto->nombre_producto = $request->nombre;
-        $producto->descripcion_producto = $request->desc;
-        $producto->precio_producto = $request->precio;
-        $producto->save();
+        $cargo = CargoModel::find($id);
+        $cargo->nombre_cargo = $request->nombre;
+        $cargo->descripcion_cargo = $request->descripcion;
+        $cargo->save();
 
-        $producto = productoModelo::all();
-        return $producto;
+        $cargos = CargoModel::all();
+        return $cargos;
     }
 
     /**
@@ -103,10 +101,10 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         //
-        $producto = productoModelo::find($id);
-        $producto->delete();
+        $cargo = CargoModel::find($id);
+        $cargo->delete();
 
-        $producto = productoModelo::all();
-        return $producto;
+        $cargos = CargoModel::all();
+        return $cargos;
     }
 }

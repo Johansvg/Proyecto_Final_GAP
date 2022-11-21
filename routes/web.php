@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CentroController;
+use App\Http\Controllers\CargoController;
+use App\Http\Controllers\EmpleadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +26,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('productos', ProductoController::class);
+Route::resource('centros', CentroController::class);
+Route::resource('cargos', CargoController::class);
+Route::resource('empleados', EmpleadosController::class);

@@ -19,9 +19,9 @@ class Pedidos extends Migration
             $table->string('direccion_pedido');
             $table->string('fecha_pedido');
             $table->string('valor_total');
-            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_usuario');
             $table->unsignedBigInteger('id_producto');
-            $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->foreign('id_producto')->references('id')->on('productos');
             $table->timestamps();
         });
