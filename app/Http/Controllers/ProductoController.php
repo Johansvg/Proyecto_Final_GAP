@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\productoModelo;
 
+
 class ProductoController extends Controller
 {
     /**
@@ -15,8 +16,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $producto = productoModelo::all();
-        return view('productos', compact('producto'));
+        $productos = productoModelo::all();
+        return view('general', compact('productos'));
     }
 
     /**
@@ -27,7 +28,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        // return view('productos.create');
+        return view('crearProductos');
     }
 
     /**
@@ -40,13 +41,13 @@ class ProductoController extends Controller
     {
         //
         $producto = new productoModelo();
-        $producto->nombre_producto = $request->nombre;
-        $producto->descripcion_producto = $request->desc;
-        $producto->precio_producto = $request->precio;
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->descripcion_producto = $request->descripcion_producto;
+        $producto->precio_producto = $request->precio_producto;
         $producto->save();
 
-        $producto = productoModelo::all();
-        return view('productos', compact('producto'));
+        $productos = productoModelo::all();
+        return view('general', compact('productos'));
     }
 
     /**
@@ -58,8 +59,8 @@ class ProductoController extends Controller
     public function show($id)
     {
         //
-        $producto = productoModelo::find($id);
-        return  view('productos', compact('producto'));
+        $productos = productoModelo::find($id);
+        return  view('general', compact('productos'));
     }
 
     /**
@@ -71,8 +72,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         //
-        $producto = productoModelo::find($id);
-        return view('editarProductos', compact('producto'));
+        $productos = productoModelo::find($id);
+        return view('editarProductos', compact('productos'));
     }
 
     /**
@@ -91,8 +92,8 @@ class ProductoController extends Controller
         $producto->precio_producto = $request->precio_producto;
         $producto->save();
 
-        $producto = productoModelo::all();
-        return view('productos', compact('producto'));
+        $productos = productoModelo::all();
+        return view('general', compact('productos'));
     }
 
     /**
@@ -107,7 +108,7 @@ class ProductoController extends Controller
         $producto = productoModelo::find($id);
         $producto->delete();
 
-        $producto = productoModelo::all();
-        return  $producto;
+        $productos = productoModelo::all();
+        return  view('general', compact('productos'));
     }
 }
