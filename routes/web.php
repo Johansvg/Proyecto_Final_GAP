@@ -10,6 +10,8 @@ use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PedidosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,5 @@ Route::resource('empleados', EmpleadosController::class);
 Route::resource('servicios', ServiciosController::class);
 Route::resource('agenda', AgendaController::class);
 Route::resource('almacen', AlmacenController::class);
+Route::resource('administrador', AdminController::class);
+Route::resource('pedidos', PedidosController::class);
