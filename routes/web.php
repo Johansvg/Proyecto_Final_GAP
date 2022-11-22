@@ -6,6 +6,10 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CentroController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AlmacenController;
+use App\Http\Controllers\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +29,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('AdminGeneral', GeneralController::class);
 Route::resource('productos', ProductoController::class);
 Route::resource('centros', CentroController::class);
 Route::resource('cargos', CargoController::class);
 Route::resource('empleados', EmpleadosController::class);
+Route::resource('servicios', ServiciosController::class);
+Route::resource('agenda', AgendaController::class);
+Route::resource('almacen', AlmacenController::class);
