@@ -16,7 +16,7 @@ class ProductoController extends Controller
     {
         //
         $producto = productoModelo::all();
-        return $producto;
+        return view('productos', compact('producto'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductoController extends Controller
         $producto->save();
 
         $producto = productoModelo::all();
-        return $producto;
+        return view('productos', compact('producto'));
     }
 
     /**
@@ -59,7 +59,7 @@ class ProductoController extends Controller
     {
         //
         $producto = productoModelo::find($id);
-        return $producto;
+        return  view('productos', compact('producto'));
     }
 
     /**
@@ -71,7 +71,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         //
-        // return view('productos.edit');
+        $producto = productoModelo::find($id);
+        return view('editarProductos', compact('producto'));
     }
 
     /**
@@ -85,13 +86,13 @@ class ProductoController extends Controller
     {
         //
         $producto = productoModelo::find($id);
-        $producto->nombre_producto = $request->nombre;
-        $producto->descripcion_producto = $request->desc;
-        $producto->precio_producto = $request->precio;
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->descripcion_producto = $request->descripcion_producto;
+        $producto->precio_producto = $request->precio_producto;
         $producto->save();
 
         $producto = productoModelo::all();
-        return $producto;
+        return view('productos', compact('producto'));
     }
 
     /**
@@ -107,6 +108,6 @@ class ProductoController extends Controller
         $producto->delete();
 
         $producto = productoModelo::all();
-        return $producto;
+        return  $producto;
     }
 }
