@@ -45,9 +45,11 @@ class ProductoController extends Controller
         $producto->descripcion_producto = $request->descripcion_producto;
         $producto->precio_producto = $request->precio_producto;
         $producto->save();
+        return redirect()->route('AdminGeneral.index');
 
-        $productos = productoModelo::all();
-        return view('general', compact('productos'));
+        // return redirect()->route('pedidos');
+        // $productos = productoModelo::all();
+        // return view('general', compact('productos'));
     }
 
     /**
@@ -107,8 +109,9 @@ class ProductoController extends Controller
         //
         $producto = productoModelo::find($id);
         $producto->delete();
-
-        $productos = productoModelo::all();
-        return  view('general', compact('productos'));
+        // return rout AdminGeneralController@index;
+        return redirect()->route('general');
+        // $productos = productoModelo::all();
+        // return  view('general', compact('productos'));
     }
 }
