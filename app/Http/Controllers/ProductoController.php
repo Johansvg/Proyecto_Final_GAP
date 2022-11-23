@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\productoModelo;
+use App\Models\ServiciosModel;
 
 
 class ProductoController extends Controller
@@ -17,7 +18,7 @@ class ProductoController extends Controller
     {
         //
         $productos = productoModelo::all();
-        return view('general', compact('productos'));
+        return view('productos') -> with('productos', $productos);
     }
 
     /**
@@ -47,7 +48,7 @@ class ProductoController extends Controller
         $producto->save();
 
         $productos = productoModelo::all();
-        return view('general', compact('productos'));
+        return view('productos') -> with('productos', $productos); 
     }
 
     /**
@@ -60,7 +61,7 @@ class ProductoController extends Controller
     {
         //
         $productos = productoModelo::find($id);
-        return  view('general', compact('productos'));
+        return  view('productos', compact('productos'));
     }
 
     /**
@@ -93,7 +94,7 @@ class ProductoController extends Controller
         $producto->save();
 
         $productos = productoModelo::all();
-        return view('general', compact('productos'));
+        return view('productos') -> with('productos', $productos);
     }
 
     /**
@@ -107,8 +108,7 @@ class ProductoController extends Controller
         //
         $producto = productoModelo::find($id);
         $producto->delete();
-
         $productos = productoModelo::all();
-        return  view('general', compact('productos'));
+        return view('productos') -> with('productos', $productos);
     }
 }

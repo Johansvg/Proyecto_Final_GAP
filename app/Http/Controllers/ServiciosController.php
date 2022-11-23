@@ -18,7 +18,9 @@ class ServiciosController extends Controller
     {
         //
         $servicios = ServiciosModel::all();
-        return view('general', compact('servicios'));
+        $empleados = EmpleadosModel::all();
+        $centros = CentroModel::all();  
+        return view("servicios", compact("servicios", "empleados", "centros"));
     }
 
     /**
@@ -46,11 +48,14 @@ class ServiciosController extends Controller
         $servicio->descripcion_servicio = $request->descripcion_servicio;
         $servicio->tiempo_servicio = $request->tiempo_servicio;
         $servicio->precio_servicio = $request->precio_servicio;
-        $servicio->id_centro = $request->id_centro;
-        $servicio->id_empleado = $request->id_empleado;
+        $servicio->id_centro = $request->centro;
+        $servicio->id_empleado = $request->empleado;
         $servicio->save();
+
         $servicios = ServiciosModel::all();
-        return view('general', compact('servicios'));
+        $empleados = EmpleadosModel::all();
+        $centros = CentroModel::all();
+        return view("servicios", compact("servicios", "empleados", "centros"));
     }
 
     /**
@@ -63,7 +68,7 @@ class ServiciosController extends Controller
     {
         //
         $servicios = ServiciosModel::find($id);
-        return view('general', compact('servicios'));
+        return view('servicios', compact('servicios'));
     }
 
     /**
@@ -75,9 +80,10 @@ class ServiciosController extends Controller
     public function edit($id)
     {
         //
-        $centros = CentroModel::all();
-        $empleados = EmpleadosModel::all();
-        return view('editarServicios')->with('centros', $centros)->with('empleados', $empleados);
+        $servicios = ServiciosModel::find($id);
+        $centros = CentroModel::find($servicios->id_centro);
+        $empleados = EmpleadosModel::find($servicios->id_empleado);
+        return view('editarServicios', compact('servicios', 'centros', 'empleados'));
     }
 
     /**
@@ -100,7 +106,9 @@ class ServiciosController extends Controller
         $servicio->save();
 
         $servicios = ServiciosModel::all();
-        return view('general', compact('servicios'));
+        $empleados = EmpleadosModel::all();
+        $centros = CentroModel::all();
+        return view("servicios", compact("servicios", "empleados", "centros"));
 
     }
 
@@ -115,8 +123,10 @@ class ServiciosController extends Controller
         //
         $servicio = ServiciosModel::find($id);
         $servicio->delete();
-        
+
         $servicios = ServiciosModel::all();
-        return view('general', compact('servicios'));
+        $empleados = EmpleadosModel::all();
+        $centros = CentroModel::all();
+        return view("servicios", compact("servicios", "empleados", "centros")); 
     }
 }
