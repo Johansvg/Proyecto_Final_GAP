@@ -76,8 +76,20 @@
                                 <td class="center">{{ $servicio->descripcion_servicio }}</td>
                                 <td class="center">{{ $servicio->tiempo_servicio }}</td>
                                 <td class="center">{{ $servicio->precio_servicio }}</td>
-                                <td class="center">{{ $servicio->centro->id_centro }}</td>
-                                <td class="center">{{ $servicio->empleado->id_empleado }}</td>
+                                <td class="center">
+                                    @foreach ($centros as $centro)
+                                        @if ($centro->id == $servicio->id)
+                                            {{ $centro->nombre_centro }}
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td class="center">
+                                    @foreach ($empleados as $empleado)
+                                        @if ($empleado->id == $servicio->id)
+                                            {{ $empleado->nombre_empleado }}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td class="center"> 
                                     <a href="{{ route('servicios.edit', $servicio->id) }}" class="btn btn-small black-text cyan">Editar</a>
                                     <form action="{{ route('servicios.destroy', $servicio->id) }}" method="POST" style="display: inline;">
@@ -90,6 +102,11 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <a href="{{ route('servicios.create') }}" class="waves-effect waves-light btn green accent-4"><i class="material-icons right">add</i>Crear</a>
             </div>
         </div>
     </div>

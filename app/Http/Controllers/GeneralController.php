@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\productoModelo;
+use App\Models\ProductoModel;
 use App\Models\ServiciosModel;
 use App\Models\User;
 use App\Models\AgendaModel;
 use App\Models\AlmacenModel;
 use App\Models\CentroModel;
 use App\Models\CargoModel;
-use App\Models\EmpleadosModel;
-use App\Models\PedidosModel;
-use App\Models\AdminModel;
-
 
 class GeneralController extends Controller
 {
@@ -25,7 +21,7 @@ class GeneralController extends Controller
     public function index()
     {
         //
-        $productos = productoModelo::all();
+        $productos = ProductoModel::all();
         $servicios = ServiciosModel::all();
         $usuarios = User::all();
         $agenda = AgendaModel::all();
@@ -34,9 +30,8 @@ class GeneralController extends Controller
         $cargos = CargoModel::all();
         $administrador = AdminModel::all();
         $pedidos = PedidosModel::all();
-        $empleados = EmpleadosModel::all();
 
-        return view('general', compact('productos', 'servicios', 'usuarios', 'agenda', 'almacen', 'centros', 'cargos', 'administrador', 'pedidos', 'empleados'));
+        return view('general.index', compact('productos', 'servicios', 'usuarios', 'agenda', 'almacen', 'centros', 'cargos'));
     }
 
     /**
