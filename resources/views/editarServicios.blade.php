@@ -46,15 +46,33 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="nombre_centro" type="text" name="nombre_centro" value="{{ $centros->nombre_centro }}">
-                            <label for="nombre">Nombre del centro</label>
+                            <select class="browser-default " name="centro">
+                                @foreach ($centros as $centro)
+                                    @if ($centro->id == $servicios->id_centro)
+                                        <option value="{{ $centro->id }}" name="centro" selected>{{ $centro->nombre_centro }}</option>
+                                    @else
+                                        <option value=" " name="centro" disabled selected>Seleccione un centro</option>
+                                        <option value="{{ $centro->id }}" name="centro">{{ $centro->nombre_centro }}</option>
+                                    @endif
+                                @endforeach
+                                
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="nombre_empleado" type="text" name="nombre_empleado" value="{{ $empleados->nombre_empleado}}">
-                            <label for="direccion">Nombre del empleado</label>
+                            <select class="browser-default " name="empleado">
+                                @foreach ($empleados as $empleado)
+                                    @if ($empleado->id == $servicios->id_empleado)
+                                        <option value="{{ $empleado->id }}" name="empleado" selected>{{ $empleado->nombre_empleado }}</option>
+                                    @else
+                                        <option value="" name="empleado" disabled selected>Seleccione un empleado</option>
+                                        <option value="{{ $empleado->id }}" name="empleado">{{ $empleado->nombre_empleado }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
+                    </div>
                     <div class="row">
                         <div class="col s12">
                             <button type="submit" class="waves-effect waves-light btn green accent-4"><i class="material-icons right">save</i>Guardar</button>

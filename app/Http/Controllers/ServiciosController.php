@@ -81,8 +81,8 @@ class ServiciosController extends Controller
     {
         //
         $servicios = ServiciosModel::find($id);
-        $centros = CentroModel::find($servicios->id_centro);
-        $empleados = EmpleadosModel::find($servicios->id_empleado);
+        $empleados = EmpleadosModel::all();
+        $centros = CentroModel::all();
         return view('editarServicios', compact('servicios', 'centros', 'empleados'));
     }
 
@@ -97,10 +97,10 @@ class ServiciosController extends Controller
     {
         //
         $servicio = ServiciosModel::find($id);
-        $servicio->nombre_servicio = $request->nombre;
-        $servicio->descripcion_servicio = $request->descripcion;
-        $servicio->tiempo_servicio = $request->tiempo;
-        $servicio->precio_servicio = $request->precio;
+        $servicio->nombre_servicio = $request->nombre_servicio;
+        $servicio->descripcion_servicio = $request->descripcion_servicio;
+        $servicio->tiempo_servicio = $request->tiempo_servicio;
+        $servicio->precio_servicio = $request->precio_servicio;
         $servicio->id_centro = $request->centro;
         $servicio->id_empleado = $request->empleado;
         $servicio->save();

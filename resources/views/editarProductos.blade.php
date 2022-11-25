@@ -41,8 +41,8 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <button type="submit" class="waves-effect waves-light btn btn-small green accent-4"><i class="material-icons right">save</i>Guardar</button>
-                            <a href="{{ route('AdminGeneral.index') }}" class="btn btn-small black-text red lighten-1"><i class="material-icons right">cancel</i>Cancelar</a>
+                            <button type="submit" class="waves-effect waves-light btn btn-small teal"><i class="material-icons right">save</i>Guardar</button>
+                            <a href="{{ route('productos.index') }}" class="btn btn-small black-text red lighten-1"><i class="material-icons right">cancel</i>Cancelar</a>
                         </div>
                     </div>
                 </form>
