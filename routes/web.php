@@ -31,7 +31,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('AdminGeneral', GeneralController::class);
+Route::resource('AdminGeneral', GeneralController::class)
+    ->middleware('auth.admin');
 Route::resource('productos', ProductoController::class);
 Route::resource('centros', CentroController::class);
 Route::resource('cargos', CargoController::class);
