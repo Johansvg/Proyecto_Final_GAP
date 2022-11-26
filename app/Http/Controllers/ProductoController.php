@@ -45,12 +45,10 @@ class ProductoController extends Controller
         $producto->descripcion_producto = $request->descripcion_producto;
         $producto->precio_producto = $request->precio_producto;
         $producto->save();
-        return redirect()->route('productos.index');
-
         $productos = productoModelo::all();
-        return view('general', compact('productos'));
-    }
+        return view('productos') -> with('productos', $productos);
 
+    }
     /**
      * Display the specified resource.
      *

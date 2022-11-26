@@ -27,7 +27,7 @@
                     <label for="precio_servicio">Precio</label>
                 </div>
                 <div class="col s12">
-                    <select class="browser-default " name="centro">
+                    <select class="input-field teal " name="centro">
                         <option value="" disabled selected name>Seleccione un centro</option>
                         @foreach ($centros as $centro)
                             <option value="{{ $centro->id }}" name="centro">{{ $centro->nombre_centro }}</option>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="row"></div>
                 <div class="col s12">
-                    <select class="browser-default" name="empleado">
+                    <select class="input-field" name="empleado">
                         <option value="" disabled selected>Seleccione un empleado</option>
                         @foreach ($empleados as $empleado)
                             <option value="{{ $empleado->id }}" name="empleado">{{ $empleado->nombre_empleado }}</option>
@@ -45,8 +45,8 @@
                 </div>
                 <div class="row"></div>
                 <div class="col s12">
-                    <button type="submit" class="waves-effect waves-light btn btn-small teal "><i class="material-icons right">save</i>Guardar</button>
-                    <a href="{{ route('servicios.index') }}" class="btn btn-small black-text red lighten-1"><i class="material-icons right">backspace</i>Limpiar</a>
+                    <button type="submit" class="waves-effect  black-text btn  "><i class="material-icons right">save</i>Guardar</button>
+                    <a  class="btn waves-effect black-text red lighten-1"><i class="material-icons right">backspace</i>Limpiar</a>
                 </div>
             </form>
         </div>
@@ -107,4 +107,5 @@
         </div>
     </div>
 </div>
+
 @endsection

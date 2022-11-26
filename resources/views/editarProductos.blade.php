@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
         </div>
-        <div class="row z-depth-4 center grey lighten-5">
+        <div class="row center ">
             <div class="col s2"></div>
             <div class="col s8">
                 <h4>Editar productos</h4>
@@ -41,8 +41,8 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <button type="submit" class="waves-effect waves-light btn btn-small teal"><i class="material-icons right">save</i>Guardar</button>
-                            <a href="{{ route('productos.index') }}" class="btn btn-small black-text red lighten-1"><i class="material-icons right">cancel</i>Cancelar</a>
+                            <button type="submit" class="waves-effect  black-text btn "><i class="material-icons right">save</i>Guardar</button>
+                            <a href="{{ route('productos.index') }}" class="btn waves-effect black-text red lighten-1"><i class="material-icons right">cancel</i>Cancelar</a>
                         </div>
                     </div>
                 </form>

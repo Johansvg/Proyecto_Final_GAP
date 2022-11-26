@@ -24,8 +24,8 @@
                         <label for="precio_producto">Precio</label>
                     </div>
                     <div class="col s12">
-                        <button type="submit" class="waves-effect waves-light btn btn-small teal "><i class="material-icons right">save</i>Guardar</button>
-                        <a href="{{ route('productos.index') }}" class="btn btn-small black-text red lighten-1"><i class="material-icons right">backspace</i>Limpiar</a>
+                        <button type="submit" class="waves-effect  black-text btn "><i class="material-icons right">save</i>Guardar</button>
+                        <a class="btn waves-effect black-text red lighten-1"><i class="material-icons right">backspace</i>Limpiar</a>
                     </div>
                 </div>
             </form>
@@ -55,11 +55,11 @@
                             <td class="center">{{ $producto->descripcion_producto }}</td>
                             <td class="center">{{ $producto->precio_producto }}</td>
                             <td class="center"> 
-                                <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-small black-text teal">Editar</a>
+                                <a href="{{ route('productos.edit', $producto->id) }}" class="waves-effect  black-text btn" >Editar</a>
                                 <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-small black-text red lighten-1">Eliminar</button>
+                                    <button type="submit" class="btn waves-effect black-text red lighten-1">Eliminar</button>
                                 </form>
                             </td>
                         </tr>

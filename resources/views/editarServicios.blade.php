@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
         </div>
-        <div class="row z-depth-4 center grey lighten-5">
+        <div class="row center ">
             <div class="col s2"></div>
             <div class="col s8">
                 <h4>Editar productos</h4>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <select class="browser-default " name="centro">
+                            <select class="input-field" name="centro">
                                 @foreach ($centros as $centro)
                                     @if ($centro->id == $servicios->id_centro)
                                         <option value="{{ $centro->id }}" name="centro" selected>{{ $centro->nombre_centro }}</option>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <select class="browser-default " name="empleado">
+                            <select class="input-field" name="empleado">
                                 @foreach ($empleados as $empleado)
                                     @if ($empleado->id == $servicios->id_empleado)
                                         <option value="{{ $empleado->id }}" name="empleado" selected>{{ $empleado->nombre_empleado }}</option>
@@ -75,8 +75,8 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <button type="submit" class="waves-effect waves-light btn green accent-4"><i class="material-icons right">save</i>Guardar</button>
-                            <a href="{{ route('servicios.index') }}" class="waves-effect waves-light btn red lighten-1"><i class="material-icons right">cancel</i>Cancelar</a>
+                            <button type="submit" class="waves-effect  black-text btn "><i class="material-icons right">save</i>Guardar</button>
+                            <a href="{{ route('servicios.index') }}" class="btn waves-effect black-text red lighten-1"><i class="material-icons right">cancel</i>Cancelar</a>
                         </div>
                     </div>
                 </form>
@@ -84,6 +84,7 @@
             <div class="col s2"></div>
         </div>
     </div>
+    <script src="{{ asset('js/mtz.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

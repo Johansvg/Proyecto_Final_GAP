@@ -10,34 +10,39 @@
     <script src="{{ asset('./js/mtz.js') }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="http://localhost/l5/public/css/app.css" rel="stylesheet">
-
-
+    <script src="{{ asset('js/mtz.js') }}" defer></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <title>GAP</title>
 </head>
 <body>
-    <div class="row">
-        <nav class="nav-extended teal">
-            <div class="nav-content">
-                <ul class="tabs teal">
-                    <img src="{{url('img/Gap_logo.png')}}" alt="LOGO" height="200" width="200">
-                    <li><a href="#" class="brand-logo center">Logo</a></li>
-                </ul>
-            </div>
-            <div class="nav-wrapper">
-                <a class="right" href="login"><i class="material-icons right">exit_to_app</i>Salir</a>
-                <ul class="left">
-                    <li><a href="productos">PRODUCTOS</a></li>
-                    <li><a href="servicios">SERVICIOS</a></li>
-                    <li><a href="#">EMPLEADOS</a></li>
-                </ul>
-            </div>
-        </nav>
+    <nav class="nav-extended">
+        <div class="nav-wrapper teal">
+          <a href="#" class="brand-logo center"><img src="{{asset("img/Gap_logo.png") }}" height="50" width="130"></a>
+          <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{route("login")}}"><i class="material-icons right">exit_to_app</i>Salir</a></li>
+          </ul>
+        </div>
+        <div class="nav-wrapper teal lighten-1">
+          <ul>
+            <li class="tab"><a href="productos">Productos</a></li>
+            <li class="tab"><a href="servicios">Servicios</a></li>
+            <li class="tab"><a href="empleados">Empleados</a></li>
+          </ul>
+        </div>
+      </nav>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{route("login")}}">Salir</a></li>
+      </ul>
+    </nav> 
+    <div class="block">
+        @yield('content')
     </div>
-    @yield('content')
-    <div class="divider"></div>
+    {{-- incluir archivos javascript --}}
+    <script src="{{ asset('js/mtz.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 <footer class="page-footer teal darken-2">
     <div class="container">
@@ -61,6 +66,5 @@
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
     </div>
-    <script src="{{ asset('./js/materialize.js') }}" defer></script>
 </footer>
 </html>
