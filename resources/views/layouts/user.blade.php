@@ -17,22 +17,23 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <title>GAP</title>
 </head>
-<body id="fondoAdmin">
+<body >
     <nav class="nav-extended">
-        <div class="nav-wrapper teal">
-          <a href="#" class="brand-logo center"><img id="logo" src="{{asset("img/Gap_logo.png") }}" height="50" width="130"></a>
+        <div class="nav-wrapper teal" >
+          <a href="#" class="brand-logo center"><img id="logo" src="{{asset("img/Gap_logo.png") }}"></a>
           <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{{route("login")}}"><i class="material-icons right">exit_to_app</i>Salir</a></li>
           </ul>
         </div>
-        <div class="nav-wrapper teal lighten-1">
-          <ul>
-            <li class="tab"><a href="{{route("productos.index")}}">Productos</a></li>
-            <li class="tab"><a href="{{route("servicios.index")}}">Servicios</a></li>
-            <li class="tab"><a href="{{route("cargos.index")}}">Cargos</a></li>
-            <li class="tab"><a href="{{route("empleados.index")}}">Empleados</a></li>
-          </ul>
+        <div class="nav-content teal lighten-1 " >
+            <div class="col s12">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a href="{{route("productos.index")}}">Productos</a></li>
+                    <li class="tab"><a href="{{route("servicios.index")}}">Servicios</a></li>
+                    <li class="tab"><a href="empleados">Empleados</a></li>
+                </ul>
+            </div>
         </div>
       </nav>
       <ul class="sidenav" id="mobile-demo">

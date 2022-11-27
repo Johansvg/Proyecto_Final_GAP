@@ -18,7 +18,9 @@ class EmpleadosController extends Controller
     {
         //
         $empleados = EmpleadosModel::all();
-        return $empleados;
+        $cargos = CargoModel::all();
+        $centros = CentroModel::all();
+        return view("empleados", compact("empleados", "cargos", "centros"));
     }
 
     /**
@@ -29,9 +31,10 @@ class EmpleadosController extends Controller
     public function create()
     {
         //
-        // $centros = CentroModel::all();
-        // $cargos = CargoModel::all();
-        // return view('empleados.create')->with('centros', $centros)->with('cargos', $cargos);
+        $centros = CentroModel::all();
+        $cargos = CargoModel::all();
+        $empleados = EmpleadosModel::all();
+        return view('empleados', compact('centros', 'cargos', 'empleados'));
     }
 
     /**
@@ -44,14 +47,16 @@ class EmpleadosController extends Controller
     {
         //
         $empleado = new EmpleadosModel();
-        $empleado->nombre_empleado = $request->nombre;
-        $empleado->telefono_empleado = $request->telefono;
+        $empleado->nombre_empleado = $request->nombre_empleado;
+        $empleado->telefono_empleado = $request->telefono_empleado;
         $empleado->id_centro = $request->centro;
         $empleado->id_cargo = $request->cargo;
         $empleado->save();
 
+        $centros = CentroModel::all();
+        $cargos = CargoModel::all();
         $empleados = EmpleadosModel::all();
-        return $empleados;
+        return view('empleados', compact('empleados', 'centros', 'cargos'));
     }
 
     /**
@@ -64,7 +69,7 @@ class EmpleadosController extends Controller
     {
         //
         $empleado = EmpleadosModel::find($id);
-        return $empleado;
+        return view('empleados', compact('empleado'));
     }
 
     /**
@@ -76,9 +81,10 @@ class EmpleadosController extends Controller
     public function edit($id)
     {
         //
-        // $centros = CentroModel::all();
-        // $cargos = CargoModel::all();
-        // return view('empleados.edit')->with('centros', $centros)->with('cargos', $cargos);
+        $centros = CentroModel::all();
+        $cargos = CargoModel::all();
+        $empleados = EmpleadosModel::find($id);
+        return view('editarEmpleados', compact('centros', 'cargos', 'empleados'));
     }
 
     /**
@@ -92,14 +98,17 @@ class EmpleadosController extends Controller
     {
         //
         $empleado = EmpleadosModel::find($id);
-        $empleado->nombre_empleado = $request->nombre;
-        $empleado->telefono_empleado = $request->telefono;
+        $empleado->nombre_empleado = $request->nombre_empleado;
+        $empleado->telefono_empleado = $request->telefono_empleado;
         $empleado->id_centro = $request->centro;    
         $empleado->id_cargo = $request->cargo;
         $empleado->save();
 
         $empleados = EmpleadosModel::all();
-        return $empleados;
+        $cargos = CargoModel::all();
+        $centros = CentroModel::all();
+        return view('empleados', compact('empleados', 'centros', 'cargos'));
+        
     }
 
     /**
@@ -115,6 +124,9 @@ class EmpleadosController extends Controller
         $empleado->delete();
 
         $empleados = EmpleadosModel::all();
-        return $empleados;
+        $cargos = CargoModel::all();
+        $centros = CentroModel::all();
+        return view('empleados', compact('empleados', 'centros', 'cargos'));
+
     }
 }

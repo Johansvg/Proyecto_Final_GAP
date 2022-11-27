@@ -16,7 +16,7 @@ class CargoController extends Controller
     {
         //
         $cargos = CargoModel::all();
-        return $cargos;
+        return view("cargos", compact("cargos"));
     }
 
     /**
@@ -27,7 +27,7 @@ class CargoController extends Controller
     public function create()
     {
         //
-        // return view('cargos.create');
+        return view('cargos.create');
     }
 
     /**
@@ -40,12 +40,12 @@ class CargoController extends Controller
     {
         //
         $cargo = new CargoModel();
-        $cargo->nombre_cargo = $request->nombre;
-        $cargo->descripcion_cargo = $request->descripcion;
+        $cargo->nombre_cargo = $request->nombre_cargo;
+        $cargo->descripcion_cargo = $request->descripcion_cargo;
         $cargo->save();
 
         $cargos = CargoModel::all();
-        return $cargos;
+        return view("cargos", compact("cargos"));
     }
 
     /**
@@ -58,7 +58,7 @@ class CargoController extends Controller
     {
         //
         $cargo = CargoModel::find($id);
-        return $cargo;
+        return view("cargos", compact("cargo"));
     }
 
     /**
@@ -70,7 +70,8 @@ class CargoController extends Controller
     public function edit($id)
     {
         //
-        // $cargo = CargoModel::find($id);
+        $cargos = CargoModel::find($id);
+        return view("editarCargos", compact("cargos"));
     }
 
     /**
@@ -84,12 +85,12 @@ class CargoController extends Controller
     {
         //
         $cargo = CargoModel::find($id);
-        $cargo->nombre_cargo = $request->nombre;
-        $cargo->descripcion_cargo = $request->descripcion;
+        $cargo->nombre_cargo = $request->nombre_cargo;
+        $cargo->descripcion_cargo = $request->descripcion_cargo;
         $cargo->save();
 
         $cargos = CargoModel::all();
-        return $cargos;
+        return view("cargos", compact("cargos"));
     }
 
     /**
@@ -105,6 +106,6 @@ class CargoController extends Controller
         $cargo->delete();
 
         $cargos = CargoModel::all();
-        return $cargos;
+        return view("cargos", compact("cargos"));
     }
 }

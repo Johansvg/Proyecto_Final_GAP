@@ -6,17 +6,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- Styles --}}
+    <link href="{{ asset('css/css.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/materialize.js') }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>GAP</title>
 </head>
-<body>
-    <div id="app" class="col s12 m12 l12">
+<body id="fondoApp">
+    <div id="app" class="col s12 m12 l12" >
         <nav class="nav-extended">
             <div class="nav-wrapper teal">
-                <a href="#" class="brand-logo"><img src="{{asset("img/Gap_logo.png") }}" height="50" width="130"></a>
+                <a href="#" class="brand-logo ym-2"><img id="logo" src="{{asset("img/Gap_logo.png") }}" height="45" width="120"></a>
                 <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     @guest
@@ -60,7 +62,7 @@
                 @endif    
             </ul>           
         </nav>
-        <main class="py-4">
+        <main >
             @yield('content')
         </main>
     </div>
