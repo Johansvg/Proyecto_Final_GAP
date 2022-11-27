@@ -5,10 +5,23 @@
 <div class="parallax-container">
     <div class="parallax"><img src="{{asset("img/centro_estetica2.jpg")}}"></div>
 </div>
-<div class="section white">
-    <div class="row container">
-      <h2 class="header">Parallax</h2>
-      <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+<div class="section" id="borderDemo">
+    <div class="container " >
+        <div class="row ">
+            <div class="col s12">
+                <h3>
+                    <div class="center-align">
+                        <span class="card-title">Bienvenidos</span>
+                    </div>
+                </h3>
+            </div>
+            <div class="col s6 center" >
+                <a class=" btn waves-effect btn-large waves-green  black-text" id="btn">Reservar</a>            
+            </div>
+            <div class="col s6 center" >
+                <a class=" btn waves-effect btn-large waves-teal black-text" id="btn">Mis citas</a>            
+            </div>
+        </div>
     </div>
 </div>
 <div class="parallax-container">

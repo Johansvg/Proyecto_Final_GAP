@@ -15,6 +15,11 @@
     font-size: 15px;
 
 }
+#labels:hover{
+    color: #000000;
+    font-size: 15px;
+    text-decoration: none;
+}
 
 #fondoEditar{
     background: rgb(232, 243, 240);
@@ -34,3 +39,42 @@
     display: block;
 }
 
+nav{
+
+    background: radial-gradient(circle, rgb(70, 184, 167) 0%, rgb(57, 155, 140) 70%);
+
+}
+
+li {
+    
+}
+
+li:hover{
+    background:rgb(0, 57, 59);
+    
+}
+
+#btn {
+    border: 1px solid #5a5a5a;
+    border-radius: 2px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.507);
+}
+
+#btn:hover {
+    background: rgba(150, 150, 150, 0.096);
+}
+
+
+#borderDemo {
+    outline: 1px dashed rgba(0,0,0,0.64);
+    outline-offset: 0px;
+}
+
+span{
+    font-style: sans-serif;
+    font-size: 30px;
+    color: #001f1f;
+    font-weight: bold;
+    
+}
