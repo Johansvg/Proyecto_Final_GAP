@@ -23,7 +23,7 @@
           <a href="#" class="brand-logo center"><img id="logo" src="{{asset("img/Gap_logo.png") }}" height="50" width="130"></a>
           <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="{{route("login")}}"><i class="material-icons right">exit_to_app</i>Salir</a></li>
+            <li><a href="{{route("login.index")}}"><i class="material-icons right">exit_to_app</i>Salir</a></li>
           </ul>
         </div>
         <div class="nav-wrapper teal lighten-1">
@@ -36,7 +36,7 @@
         </div>
       </nav>
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{route("login")}}">Salir</a></li>
+        <li><a href="{{route("login.destroy")}}">Salir</a></li>
       </ul>
     </nav> 
     <div class="block">

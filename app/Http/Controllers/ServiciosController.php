@@ -20,7 +20,7 @@ class ServiciosController extends Controller
         $servicios = ServiciosModel::all();
         $empleados = EmpleadosModel::all();
         $centros = CentroModel::all();  
-        return view("servicios", compact("servicios", "empleados", "centros"));
+        return view("admin.servicios", compact("servicios", "empleados", "centros"));
     }
 
     /**
@@ -31,7 +31,7 @@ class ServiciosController extends Controller
     public function create()
     {
         //
-        return view('crearServicios');
+        // return view('crearServicios');
     }
 
     /**
@@ -55,7 +55,7 @@ class ServiciosController extends Controller
         $servicios = ServiciosModel::all();
         $empleados = EmpleadosModel::all();
         $centros = CentroModel::all();
-        return view("servicios", compact("servicios", "empleados", "centros"));
+        return view("admin.servicios", compact("servicios", "empleados", "centros"));
     }
 
     /**
@@ -68,7 +68,7 @@ class ServiciosController extends Controller
     {
         //
         $servicios = ServiciosModel::find($id);
-        return view('servicios', compact('servicios'));
+        return view('admin.servicios', compact('servicios'));
     }
 
     /**
@@ -83,7 +83,7 @@ class ServiciosController extends Controller
         $servicios = ServiciosModel::find($id);
         $empleados = EmpleadosModel::all();
         $centros = CentroModel::all();
-        return view('editarServicios', compact('servicios', 'centros', 'empleados'));
+        return view('admin.editarServicios', compact('servicios', 'centros', 'empleados'));
     }
 
     /**
@@ -108,7 +108,7 @@ class ServiciosController extends Controller
         $servicios = ServiciosModel::all();
         $empleados = EmpleadosModel::all();
         $centros = CentroModel::all();
-        return view("servicios", compact("servicios", "empleados", "centros"));
+        return view("admin.servicios", compact("servicios", "empleados", "centros"));
 
     }
 
@@ -127,6 +127,6 @@ class ServiciosController extends Controller
         $servicios = ServiciosModel::all();
         $empleados = EmpleadosModel::all();
         $centros = CentroModel::all();
-        return view("servicios", compact("servicios", "empleados", "centros")); 
+        return view("admin.servicios", compact("servicios", "empleados", "centros")); 
     }
 }
