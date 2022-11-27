@@ -9,7 +9,7 @@
                     @csrf
                     <div class="input-field ">
                         <label for="email">{{ __('Email Address') }}</label>
-                        <input id="email" type="email" class="validate @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="email" class="validate @error('email') is-invalid @enderror" name="email_usuario" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                             <span  role="alert">
                                 <strong>{{ $message }}</strong>
