@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\productoModelo;
-use App\Models\ServiciosModel;
 
 
 class ProductoController extends Controller
@@ -46,12 +45,10 @@ class ProductoController extends Controller
         $producto->descripcion_producto = $request->descripcion_producto;
         $producto->precio_producto = $request->precio_producto;
         $producto->save();
-        return redirect()->route('AdminGeneral.index');
-
         $productos = productoModelo::all();
-        return view('general', compact('productos'));
-    }
+        return view('productos') -> with('productos', $productos);
 
+    }
     /**
      * Display the specified resource.
      *
@@ -111,6 +108,6 @@ class ProductoController extends Controller
         $producto->delete();
 
         $productos = productoModelo::all();
-        return  view('general', compact('productos'));
+        return  view('productos', compact('productos'));
     }
 }

@@ -1,0 +1,36 @@
+#fondoAdmin{
+    background: rgb(165,207,200);
+    background: radial-gradient(circle, rgba(165,207,200,1) 0%, rgba(231,242,239,1) 100%);
+
+}
+
+#fondoApp{
+    background: rgb(231,242,239);
+    background: radial-gradient(circle, rgba(231,242,239,1) 0%, rgba(165,207,200,1) 100%);
+}
+/* Path: public\css\css.css */
+
+#labels{
+    color: #555555;
+    font-size: 15px;
+
+}
+
+#fondoEditar{
+    background: rgb(232, 243, 240);
+    background: radial-gradient(circle, rgb(220, 236, 232) 0%, rgb(199, 209, 207) 54%);
+}
+
+#logo {
+    width: 90px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+    }
+#logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
