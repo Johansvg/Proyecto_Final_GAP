@@ -57,7 +57,7 @@
                             </a>
                         </div>
                         <div class="col s2">
-                            <button type="submit" class="btn waves-effect cyan lighten-3 black-text">
+                            <button type="submit" class="btn waves-effect waves-orange black-text" id="btn">
                                 {{ __('Registrar') }}
                             </button>
                         </div>

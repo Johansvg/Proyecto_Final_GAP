@@ -12,14 +12,13 @@
     <script src="{{ asset('./js/mtz.js') }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="{{ asset('js/mtz.js') }}" defer></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <title>GAP</title>
 </head>
 <body >
-    <nav class="nav-extended">
-        <div class="nav-wrapper teal" >
+    <nav class="nav-extended" id="nav">
+        <div class="nav-wrapper" >
           <a href="#" class="brand-logo center"><img id="logo" src="{{asset("img/Gap_logo.png") }}"></a>
           <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">

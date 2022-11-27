@@ -48,7 +48,7 @@
                         <th class="center">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     @foreach ($productos as $producto)
                         <tr>
                             <td>{{ $producto->nombre_producto }}</td>

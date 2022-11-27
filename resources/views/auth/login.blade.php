@@ -46,13 +46,13 @@
                             <div>
                                 <div class="col s1"></div>
                                 <div class="col s6">
-                                    <button type="submit" class="btn waves-effect black-text cyan lighten-3">
+                                    <button type="submit" class="btn  waves-effect waves-teal black-text" id="btn">
                                         {{ __('Iniciar') }}
                                     </button>
                                 </div>
                                 <div class="col s5">
-                                    <a href="{{route("register")}}" class="btn waves-effect black-text teal lighten-2">
-                                        {{ __('Registrar') }}
+                                    <a href="{{route("register")}}" class="btn waves-effect waves-orange black-text" id="btn">
+                                        {{ __('Registro') }}
                                     </a>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                         <br>
                         <div class="col s12">
                             @if (Route::has('password.request'))
-                                <a class="teal-text " href="{{ route('password.request') }}">
+                                <a class="teal-text" href="{{ route('password.request') }}">
                                     {{ __('¿Olvidaste la contraseña?') }}
                                 </a>
                             @endif

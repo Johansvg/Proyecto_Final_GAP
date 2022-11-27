@@ -19,7 +19,7 @@
 </head>
 <body id="fondoAdmin">
     <nav class="nav-extended">
-        <div class="nav-wrapper teal">
+        <div class="nav-wrapper ">
           <a href="#" class="brand-logo center"><img id="logo" src="{{asset("img/Gap_logo.png") }}" height="50" width="130"></a>
           <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">

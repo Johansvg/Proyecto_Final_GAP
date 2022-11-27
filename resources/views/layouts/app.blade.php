@@ -17,8 +17,8 @@
 <body id="fondoApp">
     <div id="app" class="col s12 m12 l12" >
         <nav class="nav-extended">
-            <div class="nav-wrapper teal">
-                <a href="#" class="brand-logo ym-2"><img id="logo" src="{{asset("img/Gap_logo.png") }}" height="45" width="120"></a>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center"><img id="logo" src="{{asset("img/Gap_logo.png") }}" height="45" width="120"></a>
                 <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     @guest
