@@ -65,7 +65,6 @@ li:hover{
     background: rgba(150, 150, 150, 0.096);
 }
 
-
 #borderDemo {
     outline: 1px dashed rgba(0,0,0,0.64);
     outline-offset: 0px;
@@ -77,4 +76,15 @@ span{
     color: #001f1f;
     font-weight: bold;
     
+}
+
+#textDemo{
+    text-shadow: 4px 3px 0 #07e0e0, -40px -23px 0px rgba(206,89,55,0);
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#bottomDemo {
+    border-bottom: 6px dotted #000000;
 }

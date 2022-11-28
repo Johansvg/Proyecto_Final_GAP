@@ -25,15 +25,12 @@
             <li><a href="{{route("login")}}"><i class="material-icons right">exit_to_app</i>Salir</a></li>
           </ul>
         </div>
-        <div class="nav-content teal lighten-1 " >
-            <div class="col s12">
-                <ul class="tabs tabs-transparent">
-                    <li class="tab"><a href="{{route("productos.index")}}">Productos</a></li>
-                    <li class="tab"><a href="{{route("servicios.index")}}">Servicios</a></li>
-                    <li class="tab"><a href="empleados">Empleados</a></li>
-                </ul>
-            </div>
-        </div>
+        <div class="nav-wrapper teal lighten-1">
+            <ul>
+              <li class="tab"><a href="#agenda">Agenda</a></li>
+              <li class="tab"><a href="#productos">Productos</a></li>
+            </ul>
+          </div>
       </nav>
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{{route("login")}}">Salir</a></li>
