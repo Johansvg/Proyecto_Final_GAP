@@ -1,17 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\CentroController;
-use App\Http\Controllers\CargoController;
-use App\Http\Controllers\EmpleadosController;
-use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AlmacenController;
-use App\Http\Controllers\GeneralController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CargoController;
+use App\Http\Controllers\CentroController;
+use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\PedidosController;
+use App\Http\Controllers\ServiciosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,19 +25,40 @@ use App\Http\Controllers\PedidosController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->middleware('auth');
 
-Auth::routes();
+Route::get('login', [SessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('login.index');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('AdminGeneral', GeneralController::class);
-Route::resource('productos', ProductoController::class);
-Route::resource('centros', CentroController::class);
-Route::resource('cargos', CargoController::class);
-Route::resource('empleados', EmpleadosController::class);
-Route::resource('servicios', ServiciosController::class);
-Route::resource('agenda', AgendaController::class);
-Route::resource('almacen', AlmacenController::class);
-Route::resource('administrador', AdminController::class);
-Route::resource('pedidos', PedidosController::class);
+Route::post('login', [SessionController::class, 'store'])
+    ->name('login.store');
+
+Route::get('logout', [SessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('login.destroy');
+
+Route::get('register', [RegistroController::class, 'create'])
+    ->middleware('guest')
+    ->name('register.index');
+
+Route::post('register', [RegistroController::class, 'store'])
+    ->name('register.store');
+
+Route::get('admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    // ->middleware('guest')
+    ->name('admin.index');
+
+Route::resource('productos', ProductoController::class)
+    ->middleware('auth.admin');
+
+Route::resource('servicios', ServiciosController::class)
+    ->middleware('auth.admin');
+
+Route::resource('cargos', CargoController::class)
+    ->middleware('auth.admin');
+
+Route::resource('empleados', EmpleadosController::class)
+    ->middleware('auth.admin');

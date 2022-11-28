@@ -20,7 +20,7 @@ class EmpleadosController extends Controller
         $empleados = EmpleadosModel::all();
         $cargos = CargoModel::all();
         $centros = CentroModel::all();
-        return view("empleados", compact("empleados", "cargos", "centros"));
+        return view("admin.empleados", compact("empleados", "cargos", "centros"));
     }
 
     /**
@@ -31,10 +31,10 @@ class EmpleadosController extends Controller
     public function create()
     {
         //
-        $centros = CentroModel::all();
-        $cargos = CargoModel::all();
-        $empleados = EmpleadosModel::all();
-        return view('empleados', compact('centros', 'cargos', 'empleados'));
+        // $centros = CentroModel::all();
+        // $cargos = CargoModel::all();
+        // $empleados = EmpleadosModel::all();
+        // return view('admin.empleados', compact('centros', 'cargos', 'empleados'));
     }
 
     /**
@@ -56,7 +56,7 @@ class EmpleadosController extends Controller
         $centros = CentroModel::all();
         $cargos = CargoModel::all();
         $empleados = EmpleadosModel::all();
-        return view('empleados', compact('empleados', 'centros', 'cargos'));
+        return view('admin.empleados', compact('empleados', 'centros', 'cargos'));
     }
 
     /**
@@ -69,7 +69,7 @@ class EmpleadosController extends Controller
     {
         //
         $empleado = EmpleadosModel::find($id);
-        return view('empleados', compact('empleado'));
+        return view('admin.empleados', compact('empleado'));
     }
 
     /**
@@ -84,7 +84,7 @@ class EmpleadosController extends Controller
         $centros = CentroModel::all();
         $cargos = CargoModel::all();
         $empleados = EmpleadosModel::find($id);
-        return view('editarEmpleados', compact('centros', 'cargos', 'empleados'));
+        return view('admin.editarEmpleados', compact('centros', 'cargos', 'empleados'));
     }
 
     /**
@@ -107,7 +107,7 @@ class EmpleadosController extends Controller
         $empleados = EmpleadosModel::all();
         $cargos = CargoModel::all();
         $centros = CentroModel::all();
-        return view('empleados', compact('empleados', 'centros', 'cargos'));
+        return view('admin.empleados', compact('empleados', 'centros', 'cargos'));
         
     }
 
@@ -126,7 +126,7 @@ class EmpleadosController extends Controller
         $empleados = EmpleadosModel::all();
         $cargos = CargoModel::all();
         $centros = CentroModel::all();
-        return view('empleados', compact('empleados', 'centros', 'cargos'));
+        return view('admin.empleados', compact('empleados', 'centros', 'cargos'));
 
     }
 }

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CargoModel;
+use App\Models\User;
 
-class CargoController extends Controller
+class SessionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class CargoController extends Controller
     public function index()
     {
         //
-        $cargos = CargoModel::all();
-        return view("admin.cargos", compact("cargos"));
     }
 
     /**
@@ -27,7 +25,7 @@ class CargoController extends Controller
     public function create()
     {
         //
-        // return view('cargos.create');
+        return view('auth.login');
     }
 
     /**
@@ -39,13 +37,21 @@ class CargoController extends Controller
     public function store(Request $request)
     {
         //
-        $cargo = new CargoModel();
-        $cargo->nombre_cargo = $request->nombre_cargo;
-        $cargo->descripcion_cargo = $request->descripcion_cargo;
-        $cargo->save();
+        $credentials = $request->only('email', 'password');
+        if (auth()->attempt($credentials)) {
+            if (auth()->user()->rol == 'admin') {
+                return redirect()->to('admin');
+            }
+            else {
+                return redirect()->to('/');
+            }
+        }
+        else {
+            return redirect()->back()->withErrors([
+                'message' => 'El correo o la contraseña no son correctos',
 
-        $cargos = CargoModel::all();
-        return view("admin.cargos", compact("cargos"));
+            ]);
+        }
     }
 
     /**
@@ -57,8 +63,6 @@ class CargoController extends Controller
     public function show($id)
     {
         //
-        $cargo = CargoModel::find($id);
-        return view("admin.cargos", compact("cargo"));
     }
 
     /**
@@ -70,8 +74,6 @@ class CargoController extends Controller
     public function edit($id)
     {
         //
-        $cargos = CargoModel::find($id);
-        return view("admin.editarCargos", compact("cargos"));
     }
 
     /**
@@ -84,13 +86,6 @@ class CargoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $cargo = CargoModel::find($id);
-        $cargo->nombre_cargo = $request->nombre_cargo;
-        $cargo->descripcion_cargo = $request->descripcion_cargo;
-        $cargo->save();
-
-        $cargos = CargoModel::all();
-        return view("admin.cargos", compact("cargos"));
     }
 
     /**
@@ -99,13 +94,11 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
-        $cargo = CargoModel::find($id);
-        $cargo->delete();
+        auth()->logout();
 
-        $cargos = CargoModel::all();
-        return view("admin.cargos", compact("cargos"));
+        return redirect()->to('/');
     }
 }

@@ -17,7 +17,7 @@ class ProductoController extends Controller
     {
         //
         $productos = productoModelo::all();
-        return view('productos') -> with('productos', $productos);
+        return view('admin.productos') -> with('productos', $productos);
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        return view('crearProductos');
+        // return view('crearProductos');
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductoController extends Controller
         $producto->precio_producto = $request->precio_producto;
         $producto->save();
         $productos = productoModelo::all();
-        return view('productos') -> with('productos', $productos);
+        return view('admin.productos') -> with('productos', $productos);
 
     }
     /**
@@ -59,7 +59,7 @@ class ProductoController extends Controller
     {
         //
         $productos = productoModelo::find($id);
-        return  view('productos', compact('productos'));
+        return  view('admin.productos', compact('productos'));
     }
 
     /**
@@ -72,7 +72,7 @@ class ProductoController extends Controller
     {
         //
         $productos = productoModelo::find($id);
-        return view('editarProductos', compact('productos'));
+        return view('admin.editarProductos', compact('productos'));
     }
 
     /**
@@ -92,7 +92,7 @@ class ProductoController extends Controller
         $producto->save();
 
         $productos = productoModelo::all();
-        return view('productos') -> with('productos', $productos);
+        return view('admin.productos') -> with('productos', $productos);
     }
 
     /**
@@ -108,6 +108,6 @@ class ProductoController extends Controller
         $producto->delete();
 
         $productos = productoModelo::all();
-        return  view('productos', compact('productos'));
+        return  view('admin.productos', compact('productos'));
     }
 }

@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<!Doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
@@ -23,7 +23,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     @guest
                         @if (Route::has('login'))
-                            <li><a  href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a  href="{{ route('login.index') }}">{{ __('Login') }}</a></li>
                         @endif
                         @if (Route::has('register'))
                             <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AdminModel;
 
 class AdminController extends Controller
 {
@@ -15,8 +14,7 @@ class AdminController extends Controller
     public function index()
     {
         //
-        $administrador = AdminModel::all();
-        return view('AdminGeneral.index', compact('administrador'));
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -27,7 +25,6 @@ class AdminController extends Controller
     public function create()
     {
         //
-        // return view('AdminGeneral.create');
     }
 
     /**
@@ -39,15 +36,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
-        $administrador = new AdminModel();
-        $administrador->nombre_administrador = $request->nombre_administrador;
-        $administrador->telefono_administrador = $request->telefono_administrador;
-        $administrador->correo_administrador = $request->correo_administrador;
-        $administrador->contrasena_administrador = $request->contrasena_administrador;
-        $administrador->save();
-
-        $administrador = AdminModel::all();
-        return view('AdminGeneral.index', compact('administrador'));
     }
 
     /**
@@ -59,8 +47,6 @@ class AdminController extends Controller
     public function show($id)
     {
         //
-        // $administrador = AdminModel::find($id);
-        // return view('AdminGeneral.show', compact('administrador'));
     }
 
     /**
@@ -72,8 +58,6 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        // $administrador = AdminModel::find($id);
-        // return view('AdminGeneral.edit', compact('administrador'));
     }
 
     /**
@@ -86,15 +70,6 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $administrador = AdminModel::find($id);
-        $administrador->nombre_administrador = $request->nombre_administrador;
-        $administrador->telefono_administrador = $request->telefono_administrador;
-        $administrador->correo_administrador = $request->correo_administrador;
-        $administrador->contrasena_administrador = $request->contrasena_administrador;
-        $administrador->save();
-
-        $administrador = AdminModel::all();
-        return view('AdminGeneral.index', compact('administrador'));
     }
 
     /**
@@ -106,10 +81,5 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-        $administrador = AdminModel::find($id);
-        $administrador->delete();
-
-        $administrador = AdminModel::all();
-        return view('AdminGeneral.index', compact('administrador'));
     }
 }
